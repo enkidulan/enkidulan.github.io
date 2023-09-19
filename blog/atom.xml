@@ -2,10 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://enkidulan.info/</id>
   <title>Enkidulan's blog Blog</title>
-  <updated>2023-09-19T00:45:54.479322+00:00</updated>
+  <updated>2023-09-19T00:53:13.650460+00:00</updated>
   <link href="https://enkidulan.info/"/>
   <link href="https://enkidulan.info/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.5">ABlog</generator>
+  <entry>
+    <id>https://enkidulan.info/posts/it_has_been_a_while/</id>
+    <title>My blog is back</title>
+    <updated>2022-09-19T00:00:00-07:00</updated>
+    <author>
+      <name>Maksym Shalenyi</name>
+    </author>
+    <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;It has been a while! But my blog is back and on a new engine!&lt;/p&gt;
+&lt;p&gt;After a mishap with a cloud provider, I’m bringing my blog back. This time I’ve decided to try static blog engine, and even more, the one that is based on Sphinx. Thanks to &lt;a class="reference external" href="https://ablog.readthedocs.io/en/stable/"&gt;https://ablog.readthedocs.io/en/stable/&lt;/a&gt; for awesome software.&lt;/p&gt;
+&lt;/p&gt;
+</content>
+    <link href="https://enkidulan.info/posts/it_has_been_a_while/" rel="alternate"/>
+    <summary>It has been a while! But my blog is back and on a new engine!After a mishap with a cloud provider, I’m bringing my blog back. This time I’ve decided to try static blog engine, and even more, the one that is based on Sphinx. Thanks to https://ablog.readthedocs.io/en/stable/ for awesome software.</summary>
+    <category term="blog" label="blog"/>
+    <category term="python" label="python"/>
+    <published>2022-09-19T00:00:00-07:00</published>
+  </entry>
   <entry>
     <id>https://enkidulan.info/posts/old-posts/pytest-dealing-with-halting-tests/</id>
     <title>pytest: dealing with halting tests</title>
