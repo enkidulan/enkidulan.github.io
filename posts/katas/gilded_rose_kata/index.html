@@ -755,7 +755,7 @@ category instead item name. Let’s have a go on the code:</p>
 
 
 <span class="k">def</span> <span class="nf">get_rule</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">category_rule_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">category_rule_mapping</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">category</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">category_rule_mapping</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">category</span><span class="p">]</span>
 
 
 <span class="k">class</span> <span class="nc">GildedRose</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
