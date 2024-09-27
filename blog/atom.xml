@@ -2,10 +2,47 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://enkidulan.info/</id>
   <title>Enkidulan's blog Blog</title>
-  <updated>2024-09-21T18:33:20.621057+00:00</updated>
+  <updated>2024-09-27T21:46:01.139190+00:00</updated>
   <link href="https://enkidulan.info/"/>
   <link href="https://enkidulan.info/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.11">ABlog</generator>
+  <entry>
+    <id>https://enkidulan.info/posts/katas/gilded_rose_kata/</id>
+    <title>Gilded Rose Refactoring Kata</title>
+    <updated>2024-09-27T00:00:00+00:00</updated>
+    <author>
+      <name>Maksym Shalenyi</name>
+    </author>
+    <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Not too long ago I tried “Gilded Rose Refactoring Kata”. It is an excellent
+exercise, and I highly recommend to try it. I’ve also seen many people sharing
+great solutions on GitHub and in personal blogs. However, almost all of
+the solutions I’ve seen did not reflect the reasoning about “why?” and “how?”.
+Why the current code needs to be refactored? How do I want to change code?
+How do I want to go about changing code? Why I refactored the code in this
+way and not another? So this post is my reflections on the “why?” and “how?”
+which I hope you will find useful and/or entertaining.&lt;/p&gt;
+&lt;p&gt;The kata and its test is kindly provided by Emily Bache and can be found on
+&lt;a class="github reference external" href="https://github.com/emilybache/GildedRose-Refactoring-Kata"&gt;emilybache/GildedRose-Refactoring-Kata&lt;/a&gt;. I highly encourage
+to give it a go, as I had a lot of fun working on it. The kata goes like this:&lt;/p&gt;
+&lt;/p&gt;
+</content>
+    <link href="https://enkidulan.info/posts/katas/gilded_rose_kata/"/>
+    <summary>Not too long ago I tried “Gilded Rose Refactoring Kata”. It is an excellent
+exercise, and I highly recommend to try it. I’ve also seen many people sharing
+great solutions on GitHub and in personal blogs. However, almost all of
+the solutions I’ve seen did not reflect the reasoning about “why?” and “how?”.
+Why the current code needs to be refactored? How do I want to change code?
+How do I want to go about changing code? Why I refactored the code in this
+way and not another? So this post is my reflections on the “why?” and “how?”
+which I hope you will find useful and/or entertaining.The kata and its test is kindly provided by Emily Bache and can be found on
+https://github.com/emilybache/GildedRose-Refactoring-Kata. I highly encourage
+to give it a go, as I had a lot of fun working on it. The kata goes like this:</summary>
+    <category term="blog" label="blog"/>
+    <category term="kata" label="kata"/>
+    <category term="python" label="python"/>
+    <category term="software-design" label="software-design"/>
+    <published>2024-09-27T00:00:00+00:00</published>
+  </entry>
   <entry>
     <id>https://enkidulan.info/posts/it_has_been_a_while/</id>
     <title>My blog is back</title>
