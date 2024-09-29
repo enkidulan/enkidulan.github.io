@@ -334,6 +334,32 @@ document.write(`
       
   </li>
    
+  <li id="ablog-sidebar-item comments ablog__comments">
+    <script type="text/javascript">
+      var disqus_shortname = "enkidulan";
+
+      (function () {
+        var s = document.createElement("script");
+        s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (
+          document.getElementsByTagName("HEAD")[0] ||
+          document.getElementsByTagName("BODY")[0]
+        ).appendChild(s);
+      })();
+    </script>
+    
+    <i class="fa-fw fa fa-comments"></i>
+    
+    <a
+      href="#disqus_thread"
+      data-disqus-identifier="/posts/katas/gilded_rose_kata/"
+    >
+      
+    </a>
+  </li>
+  
 </div>
   </ul>
 </div>
