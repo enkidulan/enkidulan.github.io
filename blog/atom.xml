@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://enkidulan.info/</id>
   <title>Enkidulan's blog Blog</title>
-  <updated>2025-01-15T16:16:36.672752+00:00</updated>
+  <updated>2025-01-16T16:42:01.610559+00:00</updated>
   <link href="https://enkidulan.info/"/>
   <link href="https://enkidulan.info/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.12">ABlog</generator>
   <entry>
     <id>https://enkidulan.info/posts/katas/gilded_rose_kata/</id>
     <title>Gilded Rose Refactoring Kata</title>
-    <updated>2024-09-27T00:00:00+00:00</updated>
+    <updated>2024-09-27T00:00:00-07:00</updated>
     <author>
       <name>Maksym Shalenyi</name>
     </author>
@@ -41,12 +41,12 @@ to give it a go, as I had a lot of fun working on it. The kata goes like this:</
     <category term="kata" label="kata"/>
     <category term="python" label="python"/>
     <category term="software-design" label="software-design"/>
-    <published>2024-09-27T00:00:00+00:00</published>
+    <published>2024-09-27T00:00:00-07:00</published>
   </entry>
   <entry>
     <id>https://enkidulan.info/posts/it_has_been_a_while/</id>
     <title>My blog is back</title>
-    <updated>2023-09-19T00:00:00+00:00</updated>
+    <updated>2023-09-19T00:00:00-07:00</updated>
     <author>
       <name>Maksym Shalenyi</name>
     </author>
@@ -58,12 +58,12 @@ to give it a go, as I had a lot of fun working on it. The kata goes like this:</
     <summary>It has been a while! But my blog is back and on a new engine!After a mishap with a cloud provider, I’m bringing my blog back. This time I’ve decided to try static blog engine, and even more, the one that is based on Sphinx. Thanks to https://ablog.readthedocs.io/en/stable/ for awesome software.</summary>
     <category term="blog" label="blog"/>
     <category term="python" label="python"/>
-    <published>2023-09-19T00:00:00+00:00</published>
+    <published>2023-09-19T00:00:00-07:00</published>
   </entry>
   <entry>
     <id>https://enkidulan.info/posts/old-posts/pytest-dealing-with-halting-tests/</id>
     <title>pytest: dealing with halting tests</title>
-    <updated>2021-04-21T00:00:00+00:00</updated>
+    <updated>2021-04-21T00:00:00-07:00</updated>
     <author>
       <name>Maksym Shalenyi</name>
     </author>
@@ -76,12 +76,12 @@ to give it a go, as I had a lot of fun working on it. The kata goes like this:</
     <category term="pytest" label="pytest"/>
     <category term="python" label="python"/>
     <category term="testing" label="testing"/>
-    <published>2021-04-21T00:00:00+00:00</published>
+    <published>2021-04-21T00:00:00-07:00</published>
   </entry>
   <entry>
     <id>https://enkidulan.info/posts/old-posts/pdb-driven-development/</id>
     <title>Pdb Driven Development</title>
-    <updated>2016-12-02T00:00:00+00:00</updated>
+    <updated>2016-12-02T00:00:00-08:00</updated>
     <author>
       <name>Maksym Shalenyi</name>
     </author>
@@ -94,6 +94,6 @@ to give it a go, as I had a lot of fun working on it. The kata goes like this:</
     <category term="debugging" label="debugging"/>
     <category term="pdb" label="pdb"/>
     <category term="python" label="python"/>
-    <published>2016-12-02T00:00:00+00:00</published>
+    <published>2016-12-02T00:00:00-08:00</published>
   </entry>
 </feed>
