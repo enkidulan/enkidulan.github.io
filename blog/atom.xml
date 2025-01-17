@@ -2,34 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://enkidulan.info/</id>
   <title>Enkidulan's blog Blog</title>
-  <updated>2025-01-17T00:55:58.014259+00:00</updated>
+  <updated>2025-01-17T01:04:24.757737+00:00</updated>
   <link href="https://enkidulan.info/"/>
   <link href="https://enkidulan.info/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.12">ABlog</generator>
   <entry>
     <id>https://enkidulan.info/posts/easy_diagrams/mvp_design/</id>
     <title>Designing EasyDiagrams MVP</title>
-    <updated>2025-01-08T00:00:00+00:00</updated>
+    <updated>2025-01-08T00:00:00-08:00</updated>
     <author>
       <name>Maksym Shalenyi</name>
     </author>
     <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;I want to share the process I followed to design the MVP for &lt;a class="reference external" href="https://EasyDiagrams.work"&gt;EasyDiagrams.work&lt;/a&gt;, along with the outcome. Each chapter in this document represents a step in my research and design process. The main goal of creating this document before writing any code was to anticipate potential challenges—even those that initially seemed trivial—and to capture the goals, as well as the key decisions about design and architecture.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Vocabulary:&lt;/strong&gt;&lt;/p&gt;
-&lt;img alt="https://easydiagrams.work/diagrams/jT3oIjGnZhLoSHJlYzOeP8XkRjmdUjmY/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/jT3oIjGnZhLoSHJlYzOeP8XkRjmdUjmY/image.svg" /&gt;&lt;/p&gt;
+&lt;/p&gt;
 </content>
     <link href="https://enkidulan.info/posts/easy_diagrams/mvp_design/"/>
-    <summary>I want to share the process I followed to design the MVP for EasyDiagrams.work, along with the outcome. Each chapter in this document represents a step in my research and design process. The main goal of creating this document before writing any code was to anticipate potential challenges—even those that initially seemed trivial—and to capture the goals, as well as the key decisions about design and architecture.Vocabulary:</summary>
+    <summary>I want to share the process I followed to design the MVP for EasyDiagrams.work, along with the outcome. Each chapter in this document represents a step in my research and design process. The main goal of creating this document before writing any code was to anticipate potential challenges—even those that initially seemed trivial—and to capture the goals, as well as the key decisions about design and architecture.</summary>
     <category term="easy_diagrams" label="easy_diagrams"/>
     <category term="plantuml" label="plantuml"/>
     <category term="python" label="python"/>
     <category term="software-design" label="software-design"/>
     <category term="system-design" label="system-design"/>
-    <published>2025-01-08T00:00:00+00:00</published>
+    <published>2025-01-08T00:00:00-08:00</published>
   </entry>
   <entry>
     <id>https://enkidulan.info/posts/katas/gilded_rose_kata/</id>
     <title>Gilded Rose Refactoring Kata</title>
-    <updated>2024-09-27T00:00:00+00:00</updated>
+    <updated>2024-09-27T00:00:00-07:00</updated>
     <author>
       <name>Maksym Shalenyi</name>
     </author>
@@ -61,12 +60,12 @@ to give it a go, as I had a lot of fun working on it. The kata goes like this:</
     <category term="kata" label="kata"/>
     <category term="python" label="python"/>
     <category term="software-design" label="software-design"/>
-    <published>2024-09-27T00:00:00+00:00</published>
+    <published>2024-09-27T00:00:00-07:00</published>
   </entry>
   <entry>
     <id>https://enkidulan.info/posts/it_has_been_a_while/</id>
     <title>My blog is back</title>
-    <updated>2023-09-19T00:00:00+00:00</updated>
+    <updated>2023-09-19T00:00:00-07:00</updated>
     <author>
       <name>Maksym Shalenyi</name>
     </author>
@@ -78,12 +77,12 @@ to give it a go, as I had a lot of fun working on it. The kata goes like this:</
     <summary>It has been a while! But my blog is back and on a new engine!After a mishap with a cloud provider, I’m bringing my blog back. This time I’ve decided to try static blog engine, and even more, the one that is based on Sphinx. Thanks to https://ablog.readthedocs.io/en/stable/ for awesome software.</summary>
     <category term="blog" label="blog"/>
     <category term="python" label="python"/>
-    <published>2023-09-19T00:00:00+00:00</published>
+    <published>2023-09-19T00:00:00-07:00</published>
   </entry>
   <entry>
     <id>https://enkidulan.info/posts/old-posts/pytest-dealing-with-halting-tests/</id>
     <title>pytest: dealing with halting tests</title>
-    <updated>2021-04-21T00:00:00+00:00</updated>
+    <updated>2021-04-21T00:00:00-07:00</updated>
     <author>
       <name>Maksym Shalenyi</name>
     </author>
@@ -96,12 +95,12 @@ to give it a go, as I had a lot of fun working on it. The kata goes like this:</
     <category term="pytest" label="pytest"/>
     <category term="python" label="python"/>
     <category term="testing" label="testing"/>
-    <published>2021-04-21T00:00:00+00:00</published>
+    <published>2021-04-21T00:00:00-07:00</published>
   </entry>
   <entry>
     <id>https://enkidulan.info/posts/old-posts/pdb-driven-development/</id>
     <title>Pdb Driven Development</title>
-    <updated>2016-12-02T00:00:00+00:00</updated>
+    <updated>2016-12-02T00:00:00-08:00</updated>
     <author>
       <name>Maksym Shalenyi</name>
     </author>
@@ -114,6 +113,6 @@ to give it a go, as I had a lot of fun working on it. The kata goes like this:</
     <category term="debugging" label="debugging"/>
     <category term="pdb" label="pdb"/>
     <category term="python" label="python"/>
-    <published>2016-12-02T00:00:00+00:00</published>
+    <published>2016-12-02T00:00:00-08:00</published>
   </entry>
 </feed>
