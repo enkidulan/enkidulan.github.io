@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>EasyDiagram: Designing a Roadmap &#8212; Enkidulan&#39;s blog  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/blog.css?v=1ca53f92" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=187304be"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-R5VCB5JGKZ"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-R5VCB5JGKZ');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-R5VCB5JGKZ');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'posts/easy_diagrams/roadmap';</script>
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="Enkidulan's blog Blog"
+/>
+  
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Enkidulan's blog  documentation - Home"/>
+    <img src="../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Enkidulan's blog  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../about/">
+    About Maksym Shalenyi
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../about/">
+    About Maksym Shalenyi
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__postcard">
+   
+  <h2>
+     
+    <i class="fa fa-calendar"></i>
+    
+    <span>Jan 14, 2025</span>
+    
+  </h2>
+  <ul>
+    <div class="ablog-sidebar-item ablog__postcard2">
+   
+  <li id="ablog-sidebar-item author ablog__author">
+    <span>
+      
+      <i class="fa-fw fa fa-user"></i>
+      
+    </span>
+     
+    <a href="../../../blog/author/maksym-shalenyi/">Maksym Shalenyi</a>
+      
+  </li>
+     
+  <li id="ablog-sidebar-item category ablog__category">
+    <span>
+      
+      <i class="fa-fw fa fa-folder-open"></i>
+      
+    </span>
+     
+    <a href="../../../blog/category/python/">python</a>
+      
+  </li>
+   
+  <li id="ablog-sidebar-item tags ablog__tags">
+    <span>
+       
+      <i class="fa-fw fa fa-tags"></i>
+       
+    </span>
+     
+    <a href="../../../blog/tag/python/">python</a>
+        
+    <a href="../../../blog/tag/software-design/">software-design</a>
+        
+    <a href="../../../blog/tag/system-design/">system-design</a>
+        
+    <a href="../../../blog/tag/plantuml/">plantuml</a>
+        
+    <a href="../../../blog/tag/easy_diagrams/">easy_diagrams</a>
+      
+  </li>
+   
+  <li id="ablog-sidebar-item comments ablog__comments">
+    <script type="text/javascript">
+      var disqus_shortname = "enkidulan";
+
+      (function () {
+        var s = document.createElement("script");
+        s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (
+          document.getElementsByTagName("HEAD")[0] ||
+          document.getElementsByTagName("BODY")[0]
+        ).appendChild(s);
+      })();
+    </script>
+    
+    <i class="fa-fw fa fa-comments"></i>
+    
+    <a
+      href="#disqus_thread"
+      data-disqus-identifier="/posts/easy_diagrams/roadmap/"
+    >
+      
+    </a>
+  </li>
+  
+</div>
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__recentposts">
+  <h3>
+    <a href="../../../blog/">Recent Posts</a>
+  </h3>
+  <ul>
+     
+    <li>
+      <a href="../mvp_design/">
+        Jan 08, 2025 - Designing EasyDiagrams MVP
+      </a>
+    </li>
+    
+    <li>
+      <a href="../../katas/gilded_rose_kata/">
+        Sep 27, 2024 - Gilded Rose Refactoring Kata
+      </a>
+    </li>
+    
+    <li>
+      <a href="../../it_has_been_a_while/">
+        Sep 19, 2023 - My blog is back
+      </a>
+    </li>
+    
+    <li>
+      <a href="../../old-posts/pytest-dealing-with-halting-tests/">
+        Apr 21, 2021 - pytest: dealing with halting tests
+      </a>
+    </li>
+    
+    <li>
+      <a href="../../old-posts/pdb-driven-development/">
+        Dec 02, 2016 - Pdb Driven Development
+      </a>
+    </li>
+    
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__tagcloud">
+  <link
+    rel="stylesheet"
+    href="../../../_static/ablog/tagcloud.css"
+    type="text/css"
+  />
+  <h3><a href="../../../blog/tag/">Tags</a></h3>
+  <ul class="ablog-cloud">
+     
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/blog/">blog</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/debugging/">debugging</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/easy_diagrams/">easy_diagrams</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/kata/">kata</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/pdb/">pdb</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/plantuml/">plantuml</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/pytest/">pytest</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-5">
+      <a href="../../../blog/tag/python/">python</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-2">
+      <a href="../../../blog/tag/software-design/">software-design</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/system-design/">system-design</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/testing/">testing</a>
+    </li>
+     
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__categories">
+  <h3>
+    <a href="../../../blog/category/">Categories</a>
+  </h3>
+  <ul>
+     
+    <li>
+      <a href="../../../blog/category/python/">python (6)</a>
+    </li>
+     
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__archives">
+  <h3>
+    <a href="../../../blog/archive/">Archives</a>
+  </h3>
+  <ul>
+     
+    <li>
+      <a href="../../../blog/2025/">2025 (2)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2024/">2024 (1)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2023/">2023 (1)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2021/">2021 (1)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2016/">2016 (1)</a>
+    </li>
+     
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">EasyDiagram: Designing a Roadmap</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section id="easydiagram-designing-a-roadmap">
+<h1>EasyDiagram: Designing a Roadmap<a class="headerlink" href="#easydiagram-designing-a-roadmap" title="Link to this heading">#</a></h1>
+<p>This document aims to define a multistage strategy for improving the EasyDiagrams’s performance
+and functionality while maintaining an optimal performance-to-cost balance and allowing for
+organic growth. In this post I’m establishing a refactoring framework/guideline with clearly
+defined steps, where each step has an assigned priority and enables a class of features
+while addressing certain functional/non-functional aspects. This is a roadmap for the approach
+aimed at minimizing the likelihood of needing to redesign and rewrite the system in the future.</p>
+<section id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">#</a></h2>
+<section id="access-patterns">
+<h3>Access Patterns<a class="headerlink" href="#access-patterns" title="Link to this heading">#</a></h3>
+<p>There are several different types of traffic that the system will have to handle:</p>
+<ul class="simple">
+<li><p><strong>Image Viewing</strong> traffic, including the built-in editor view, is the most common type of
+traffic in the system and easily exceeds hundreds of RPS.</p></li>
+<li><p><strong>Image Rendering</strong> traffic is another common type of traffic that a user will generate
+frequently after creating a new diagram, measured in tens of requests per diagram. This
+is also the slowest part of the traffic, as image rendering takes approximately 1.2
+seconds.</p></li>
+<li><p><strong>Diagram Management</strong> traffic includes listing, creation, deletion, access management,
+and renaming diagrams. It’s a common access pattern, but still not one that generates a
+lot of traffic.</p></li>
+<li><p><strong>Landing Page</strong> traffic is not very common, as the landing page is visited only by
+newcomers or users wanting to create a diagram.</p></li>
+<li><p><strong>Static Resource</strong> (non-diagram related) traffic consists of resources that are usually
+kept on a CDN.</p></li>
+<li><p><strong>Registration and Authentication</strong> traffic is the least common type of traffic to the
+system.</p></li>
+</ul>
+<p>The traffic generated by <strong>registration, authentication</strong>, and <strong>diagram management</strong>
+activities is relatively low, and the initial MVP provides sufficient performance.
+Therefore, there likely won’t be a need to worry about it until the system grows to
+hundreds of users and millions of diagrams.</p>
+<p><strong>Image Rendering</strong> is another story, as the initial MVP can handle approximately 3 RPS at
+most, which significantly limits the number of users working at the same time.</p>
+<p>Since diagrams can be made public, <strong>Image Viewing</strong> traffic does not directly correlate
+with the number of active users. The initial MVP can handle 3K RPS, which is quite good
+for a demo project, but for production, it may be too low given the nature of the traffic.</p>
+</section>
+</section>
+<section id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Link to this heading">#</a></h2>
+<p>Given the access patterns and benchmark results, the diagram rendering view is the first
+area that requires significant improvement. The next areas to address are the image and
+built-in editor views, as they are the most common access patterns. Consequently, the
+roadmap focuses primarily on these areas while also incorporating some functional
+improvements. Broader performance optimizations will address the rest of the logic.</p>
+<p>The most effective approach to implementing these improvements is as follows:</p>
+<ol class="arabic simple">
+<li><p><strong>Introduce image versioning</strong></p></li>
+<li><p><strong>Make rendering asynchronous</strong> with horizontally scalable renderers</p></li>
+<li><p><strong>Implement an effective caching strategy</strong></p></li>
+<li><p><strong>Extend the data model</strong> and support database sharing</p></li>
+<li><p><strong>Implement performance-critical parts in Rust</strong> (for cases where Python becomes a
+bottleneck)</p></li>
+<li><p><strong>Move static assets</strong> to CDN</p></li>
+</ol>
+<p>The roadmap places high-priority items at the top, with each step enabling the subsequent
+one. Low-priority items remain at the bottom. While performance optimization and
+horizontal scaling are top priorities, the plan also aims to keep scaling to a minimum.</p>
+<section id="step-1-image-versioning">
+<h3>Step 1. Image Versioning<a class="headerlink" href="#step-1-image-versioning" title="Link to this heading">#</a></h3>
+<p><strong>Image versioning</strong> is important because it enables asynchronous rendering and effective
+caching. The approach involves adding two version fields, <strong>code_version</strong> and
+<strong>image_version</strong>, to track changes in the code and the image:</p>
+<ol class="arabic simple">
+<li><p><strong>code_version</strong> is generated immediately after the code is updated and can be returned
+to the user. This version is a unique, incrementing value (for instance, a timestamp
+combined with a random suffix).</p></li>
+<li><p><strong>image_version</strong> is set to the <strong>code_version</strong> of the code from which the image was
+rendered.</p></li>
+</ol>
+<p>If <strong>image_version</strong> does not match <strong>code_version</strong>, it indicates that the image is
+outdated and should be regenerated, or that the code is invalid.</p>
+<img alt="https://easydiagrams.work/diagrams/gNeq7FKv3nVR7Fzi8XS0V11nsqcyrzyK/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/gNeq7FKv3nVR7Fzi8XS0V11nsqcyrzyK/image.svg" />
+</section>
+<section id="step-2-async-image-rendering">
+<h3>Step 2. Async Image Rendering<a class="headerlink" href="#step-2-async-image-rendering" title="Link to this heading">#</a></h3>
+<p><strong>Context</strong>: PlantUML requires about 0.5 to 1.5 seconds to render an image. Making a UI request wait
+that long for a rendered image is detrimental to scalability because it blocks the server
+and prevents it from handling other requests.</p>
+<p><strong>Goal</strong>: Implement a more efficient way of dealing with image rendering requests.</p>
+<p><strong>Solution</strong>: By delegating image rendering to an asynchronous task, the server can immediately respond
+with HTTP 204 and free itself to handle other requests, while background workers can be
+scaled out to accommodate the rendering load.</p>
+<p>To obtain a new rendered image, the UI uses long polling until the <strong>image_version</strong>
+matches the <strong>code_version</strong>. Long polling is straightforward to implement and doesn’t
+require additional infrastructure, but a backoff safeguard is necessary to mitigate the
+possibility of DoS-ing the service. Eventually, long polling can be replaced with WebSockets
+or server push notifications for more efficient updates.</p>
+<img alt="https://easydiagrams.work/diagrams/d6FVp61ao9bTwqFRZNp0mNzcg7g9rbDH/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/d6FVp61ao9bTwqFRZNp0mNzcg7g9rbDH/image.svg" />
+<p>To communicate with workers, the server uses a queue table in the same database that stores
+the diagram data. This design choice follows the <strong>transactional outbox pattern</strong> to
+guarantee atomicity and consistency. Additionally, due to the nature of image rendering,
+only the most recent message matters—something that is not trivial to implement with typical
+messaging brokers like RabbitMQ or SQS. However, PostgreSQL naturally supports this via
+<code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span> <span class="pre">…</span> <span class="pre">ON</span> <span class="pre">CONFLICT</span> <span class="pre">(id)</span> <span class="pre">DO</span> <span class="pre">UPDATE</span></code> syntax. Since the database is already
+provisioned, this approach also avoids introducing any additional infrastructure overhead.</p>
+<img alt="https://easydiagrams.work/diagrams/Fge9fF4CaTCXqOJOaolVz0sCuTFq7b6V/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/Fge9fF4CaTCXqOJOaolVz0sCuTFq7b6V/image.svg" />
+<p>The downside of this approach is that managing the queue table is now the responsibility of
+the application logic. However, there are many frameworks that provide the required
+functionality. <strong>Dramatiq</strong> is especially well-suited because it supports PostgreSQL as a
+task broker. By customizing the relevant parts of Dramatiq, you can insert or update tasks
+based on the <code class="docutils literal notranslate"><span class="pre">diagram_id</span></code>, ensuring that each diagram has at most one associated task.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Bogdanp/dramatiq/blob/b372f431ae40ff383a5b450dc37c8e5d5671bf49/dramatiq/actor.py#L124">Dramatiq Actor reference</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.com/dalibo/dramatiq-pg/-/blob/master/dramatiq_pg/broker.py?ref_type=heads#L108">Dramatiq PostgreSQL broker</a></p></li>
+</ul>
+</section>
+<section id="step-3-caching">
+<h3>Step 3. Caching<a class="headerlink" href="#step-3-caching" title="Link to this heading">#</a></h3>
+<p><strong>Goal</strong>: Reduce database load.</p>
+<p><strong>Context</strong>: Diagrams have two access patterns:</p>
+<ol class="arabic simple">
+<li><p><strong>Editing:</strong> Frequent changes during the active editing phase.</p></li>
+<li><p><strong>Viewing:</strong> After the initial editing phase, diagrams remain static, and users only
+view them.</p></li>
+</ol>
+<p>The second pattern accounts for the majority of diagram endpoint traffic. It doesn’t make
+sense to query the database repeatedly for content that no longer changes, making caching
+especially beneficial. However, diagrams in the editing phase require quick propagation of
+changes (within minutes). Simply caching database query results for a few minutes helps
+alleviate hot spots but won’t greatly impact most diagrams, which might be viewed several
+times per day over a few weeks. For meaningful performance benefits, <strong>longer caching</strong> is
+necessary.</p>
+<p><strong>Solution</strong>: A more advanced caching strategy is needed to accommodate both editing (frequent changes)
+and viewing (static content). A <strong>local shared long-term cache</strong> with an eviction strategy
+that monitors changes alongside passing image versions for editorial workflow solves both
+requirements.</p>
+<ul class="simple">
+<li><p><strong>Local cache on each instance</strong> avoids additional infrastructure and reduces maintenance
+costs.</p></li>
+<li><p><strong>Scales with the number of instances</strong>.</p></li>
+</ul>
+<p>Leveraging tools like <a class="reference external" href="https://pypi.org/project/diskcache/">diskcache</a> for large,
+long-term storage that doesn’t require significant RAM is the best option for a local cache,
+especially as diskcache supports sharing the cache among multiple processes and can offer
+performance similar to or better than Memcache or Redis.</p>
+<section id="query-workflow-for-the-image-endpoint">
+<h4>Query Workflow for the Image Endpoint<a class="headerlink" href="#query-workflow-for-the-image-endpoint" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Check if the requested diagram is in the cache.</p></li>
+<li><p>If not, query the database.</p></li>
+</ol>
+<p>The URL for viewing an image is <code class="docutils literal notranslate"><span class="pre">/{id}/image.svg</span></code> — this is the URL that is embedded
+in external services. For editing, the editor explicitly provides the image version:
+<code class="docutils literal notranslate"><span class="pre">/{id}/image.svg?v=123</span></code>. This versioning ensures the cache always returns an image
+version that is equal to or newer than what the editor requested. Consequently, the editor
+sees the latest version instead of any stale cached content.</p>
+<img alt="https://easydiagrams.work/diagrams/vt9MBbfOHqgMTTGyxODev3xipiblIAYZ/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/vt9MBbfOHqgMTTGyxODev3xipiblIAYZ/image.svg" />
+<p>While an editor can see the updates right away, additional logic is needed to promote
+changes to other users. This is where the eviction process comes in: every two minutes,
+each instance runs a process that retrieves a list of images changed since the last run
+and evicts them from the cache. The cache, by default, has an eviction timeout of 24 hours,
+so even if the eviction process fails, the record won’t stay in the cache for more than a
+day.</p>
+<img alt="https://easydiagrams.work/diagrams/gDz2oz8WLArSguDWgkMsMsrUdQGcJuu6/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/gDz2oz8WLArSguDWgkMsMsrUdQGcJuu6/image.svg" />
+<p>The eviction process uses long polling on the database, which does create some additional
+load, but it’s much simpler and more reliable than using pub-sub, and it does not require
+any additional infrastructure. The amount of data that the eviction process pulls is limited
+to the IDs, so even in the case of tens of thousands of IDs, it should still perform well.
+However, the <code class="docutils literal notranslate"><span class="pre">image_version</span></code> field must be indexed to support range queries. Additionally,
+if the eviction process hasn’t run for more than three hours, it must evict all records in
+the local cache without making any DB queries.</p>
+<p><strong>Diskcache performance</strong> (from the project’s benchmarks):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pylibmc</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">client</span> <span class="o">=</span> <span class="n">pylibmc</span><span class="o">.</span><span class="n">Client</span><span class="p">([</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">],</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">client</span><span class="p">[</span><span class="sa">b</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;value&#39;</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">client</span><span class="p">[</span><span class="sa">b</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
+
+<span class="mi">10000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">25.4</span> <span class="n">µs</span> <span class="n">per</span> <span class="n">loop</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="kn">import</span><span class="w"> </span><span class="nn">diskcache</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dc</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">Cache</span><span class="p">(</span><span class="s1">&#39;tmp&#39;</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">cache</span><span class="p">[</span><span class="sa">b</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;value&#39;</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">cache</span><span class="p">[</span><span class="sa">b</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
+
+<span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">11.8</span> <span class="n">µs</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-4-extending-model-and-database-sharding">
+<h3>Step 4. Extending Model and Database Sharding<a class="headerlink" href="#step-4-extending-model-and-database-sharding" title="Link to this heading">#</a></h3>
+<p><strong>Goal</strong>: Extend the existing model and provide a basis for effective DB sharding.</p>
+<p><strong>Context</strong>: The MVP’s initial model provides only the most basic feature and does not support much of
+the functionality users usually want, such as organizing diagrams in folders or sharing
+diagram ownership.</p>
+<p><strong>Solution</strong>: A diagram is UML code plus a rendered image that can be displayed. A user can create and
+update diagrams. A diagram belongs to a single account, and each account always has exactly
+one owner. A user can own multiple accounts. In addition to the owner, an account can
+include multiple users who can access its diagrams, and a user can be a part of many
+accounts. A diagram can be placed in a folder, and a folder can be placed in another folder.
+A folder or diagram can belong to only one folder at most. A user can make a diagram
+publicly accessible.</p>
+<section id="extend-the-existing-model-for-effective-database-sharding">
+<h4>Extend the Existing Model for Effective Database Sharding<a class="headerlink" href="#extend-the-existing-model-for-effective-database-sharding" title="Link to this heading">#</a></h4>
+<p>The MVP’s initial model offers only the most basic features and does not support many of
+the functionalities users typically expect, such as organizing diagrams in folders or
+sharing diagram ownership.</p>
+<p>The extended model must support the following use cases:</p>
+<ul class="simple">
+<li><p>A <strong>diagram</strong> consists of UML code and a rendered image that can be displayed.</p></li>
+<li><p>A <strong>user</strong> can create and update diagrams.</p></li>
+<li><p>A <strong>diagram</strong> belongs to a single <strong>account</strong>, and each account always has exactly one
+owner.</p></li>
+<li><p>A user can own multiple accounts.</p></li>
+<li><p>In addition to the owner, an account can include multiple users who can access its
+diagrams; similarly, a user can belong to multiple accounts.</p></li>
+<li><p>A <strong>diagram</strong> can be placed in a <strong>folder</strong>, and folders can be nested within other
+folders.</p></li>
+<li><p>A folder or diagram can belong to only one folder at a time.</p></li>
+<li><p>A user can make a diagram publicly accessible.</p></li>
+</ul>
+<img alt="https://easydiagrams.work/diagrams/gcIoNGCclM1lMZ5P3ExT7Hu72FZx21VC/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/gcIoNGCclM1lMZ5P3ExT7Hu72FZx21VC/image.svg" />
+<p>SQL ERD for the new model:</p>
+<img alt="https://easydiagrams.work/diagrams/LI3vzyrzPrUyk1fwdCgwwfiwiAgGDAyi/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/LI3vzyrzPrUyk1fwdCgwwfiwiAgGDAyi/image.svg" />
+<p>In the new model, sharding is done by account, with minimal denormalization of the user
+model. The constraint changes from requiring a globally unique user email to ensuring that
+each email is unique within its account. This provides an effective solution for both
+supporting users belonging to multiple accounts and enabling sharding.</p>
+</section>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+     
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+     
+    <a href="../mvp_design/">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Designing EasyDiagrams MVP</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+  </span>
+</div>
+  
+</div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, Maksym Shalenyi.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
