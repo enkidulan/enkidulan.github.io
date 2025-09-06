@@ -608,7 +608,7 @@ rendered.</p></li>
 </ol>
 <p>If <strong>image_version</strong> does not match <strong>code_version</strong>, it indicates that the image is
 outdated and should be regenerated, or that the code is invalid.</p>
-<img alt="https://easydiagrams.work/diagrams/gNeq7FKv3nVR7Fzi8XS0V11nsqcyrzyK/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/gNeq7FKv3nVR7Fzi8XS0V11nsqcyrzyK/image.svg" />
+<img alt="https://easydiagrams.work/diagrams/gNeq7FKv3nVR7Fzi8XS0V11nsqcyrzyK/image.png" class="align-center" src="https://easydiagrams.work/diagrams/gNeq7FKv3nVR7Fzi8XS0V11nsqcyrzyK/image.png" />
 </section>
 <section id="step-2-async-image-rendering">
 <h3>Step 2. Async Image Rendering<a class="headerlink" href="#step-2-async-image-rendering" title="Link to this heading">#</a></h3>
@@ -624,7 +624,7 @@ matches the <strong>code_version</strong>. Long polling is straightforward to im
 require additional infrastructure, but a backoff safeguard is necessary to mitigate the
 possibility of DoS-ing the service. Eventually, long polling can be replaced with WebSockets
 or server push notifications for more efficient updates.</p>
-<img alt="https://easydiagrams.work/diagrams/d6FVp61ao9bTwqFRZNp0mNzcg7g9rbDH/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/d6FVp61ao9bTwqFRZNp0mNzcg7g9rbDH/image.svg" />
+<img alt="https://easydiagrams.work/diagrams/d6FVp61ao9bTwqFRZNp0mNzcg7g9rbDH/image.png" class="align-center" src="https://easydiagrams.work/diagrams/d6FVp61ao9bTwqFRZNp0mNzcg7g9rbDH/image.png" />
 <p>To communicate with workers, the server uses a queue table in the same database that stores
 the diagram data. This design choice follows the <strong>transactional outbox pattern</strong> to
 guarantee atomicity and consistency. Additionally, due to the nature of image rendering,
@@ -632,7 +632,7 @@ only the most recent message matters—something that is not trivial to implemen
 messaging brokers like RabbitMQ or SQS. However, PostgreSQL naturally supports this via
 <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span> <span class="pre">…</span> <span class="pre">ON</span> <span class="pre">CONFLICT</span> <span class="pre">(id)</span> <span class="pre">DO</span> <span class="pre">UPDATE</span></code> syntax. Since the database is already
 provisioned, this approach also avoids introducing any additional infrastructure overhead.</p>
-<img alt="https://easydiagrams.work/diagrams/Fge9fF4CaTCXqOJOaolVz0sCuTFq7b6V/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/Fge9fF4CaTCXqOJOaolVz0sCuTFq7b6V/image.svg" />
+<img alt="https://easydiagrams.work/diagrams/Fge9fF4CaTCXqOJOaolVz0sCuTFq7b6V/image.png" class="align-center" src="https://easydiagrams.work/diagrams/Fge9fF4CaTCXqOJOaolVz0sCuTFq7b6V/image.png" />
 <p>The downside of this approach is that managing the queue table is now the responsibility of
 the application logic. However, there are many frameworks that provide the required
 functionality. <strong>Dramatiq</strong> is especially well-suited because it supports PostgreSQL as a
@@ -678,19 +678,19 @@ performance similar to or better than Memcache or Redis.</p>
 <li><p>Check if the requested diagram is in the cache.</p></li>
 <li><p>If not, query the database.</p></li>
 </ol>
-<p>The URL for viewing an image is <code class="docutils literal notranslate"><span class="pre">/{id}/image.svg</span></code> — this is the URL that is embedded
+<p>The URL for viewing an image is <code class="docutils literal notranslate"><span class="pre">/{id}/image.png</span></code> — this is the URL that is embedded
 in external services. For editing, the editor explicitly provides the image version:
-<code class="docutils literal notranslate"><span class="pre">/{id}/image.svg?v=123</span></code>. This versioning ensures the cache always returns an image
+<code class="docutils literal notranslate"><span class="pre">/{id}/image.png?v=123</span></code>. This versioning ensures the cache always returns an image
 version that is equal to or newer than what the editor requested. Consequently, the editor
 sees the latest version instead of any stale cached content.</p>
-<img alt="https://easydiagrams.work/diagrams/vt9MBbfOHqgMTTGyxODev3xipiblIAYZ/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/vt9MBbfOHqgMTTGyxODev3xipiblIAYZ/image.svg" />
+<img alt="https://easydiagrams.work/diagrams/vt9MBbfOHqgMTTGyxODev3xipiblIAYZ/image.png" class="align-center" src="https://easydiagrams.work/diagrams/vt9MBbfOHqgMTTGyxODev3xipiblIAYZ/image.png" />
 <p>While an editor can see the updates right away, additional logic is needed to promote
 changes to other users. This is where the eviction process comes in: every two minutes,
 each instance runs a process that retrieves a list of images changed since the last run
 and evicts them from the cache. The cache, by default, has an eviction timeout of 24 hours,
 so even if the eviction process fails, the record won’t stay in the cache for more than a
 day.</p>
-<img alt="https://easydiagrams.work/diagrams/gDz2oz8WLArSguDWgkMsMsrUdQGcJuu6/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/gDz2oz8WLArSguDWgkMsMsrUdQGcJuu6/image.svg" />
+<img alt="https://easydiagrams.work/diagrams/gDz2oz8WLArSguDWgkMsMsrUdQGcJuu6/image.png" class="align-center" src="https://easydiagrams.work/diagrams/gDz2oz8WLArSguDWgkMsMsrUdQGcJuu6/image.png" />
 <p>The eviction process uses long polling on the database, which does create some additional
 load, but it’s much simpler and more reliable than using pub-sub, and it does not require
 any additional infrastructure. The amount of data that the eviction process pulls is limited
@@ -748,9 +748,9 @@ folders.</p></li>
 <li><p>A folder or diagram can belong to only one folder at a time.</p></li>
 <li><p>A user can make a diagram publicly accessible.</p></li>
 </ul>
-<img alt="https://easydiagrams.work/diagrams/gcIoNGCclM1lMZ5P3ExT7Hu72FZx21VC/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/gcIoNGCclM1lMZ5P3ExT7Hu72FZx21VC/image.svg" />
+<img alt="https://easydiagrams.work/diagrams/gcIoNGCclM1lMZ5P3ExT7Hu72FZx21VC/image.png" class="align-center" src="https://easydiagrams.work/diagrams/gcIoNGCclM1lMZ5P3ExT7Hu72FZx21VC/image.png" />
 <p>SQL ERD for the new model:</p>
-<img alt="https://easydiagrams.work/diagrams/LI3vzyrzPrUyk1fwdCgwwfiwiAgGDAyi/image.svg" class="align-center" src="https://easydiagrams.work/diagrams/LI3vzyrzPrUyk1fwdCgwwfiwiAgGDAyi/image.svg" />
+<img alt="https://easydiagrams.work/diagrams/LI3vzyrzPrUyk1fwdCgwwfiwiAgGDAyi/image.png" class="align-center" src="https://easydiagrams.work/diagrams/LI3vzyrzPrUyk1fwdCgwwfiwiAgGDAyi/image.png" />
 <p>In the new model, sharding is done by account, with minimal denormalization of the user
 model. The constraint changes from requiring a globally unique user email to ensuring that
 each email is unique within its account. This provides an effective solution for both
