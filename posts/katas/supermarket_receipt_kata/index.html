@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TDD in age of LLM &#8212; Enkidulan&#39;s blog  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/blog.css?v=1ca53f92" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../../../_static/documentation_options.js?v=187304be"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-R5VCB5JGKZ"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-R5VCB5JGKZ');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'posts/katas/supermarket_receipt_kata';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+   
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="Enkidulan's blog Blog"
+/>
+  
+  </head>
+  <body data-default-mode="light">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Enkidulan's blog  documentation - Home"/>
+    <img src="../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Enkidulan's blog  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../about/">
+    Maksym Shalenyi
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../about/">
+    Maksym Shalenyi
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__postcard">
+   
+  <h2>
+     
+    <i class="fa fa-calendar"></i>
+    
+    <span>Nov 09, 2026</span>
+    
+  </h2>
+  <ul>
+    <div class="ablog-sidebar-item ablog__postcard2">
+   
+  <li id="ablog-sidebar-item author ablog__author">
+    <span>
+      
+      <i class="fa-fw fa fa-user"></i>
+      
+    </span>
+     
+    <a href="../../../blog/author/maksym-shalenyi/">Maksym Shalenyi</a>
+      
+  </li>
+     
+  <li id="ablog-sidebar-item category ablog__category">
+    <span>
+      
+      <i class="fa-fw fa fa-folder-open"></i>
+      
+    </span>
+     
+    <a href="../../../blog/category/python/">python</a>
+      
+  </li>
+   
+  <li id="ablog-sidebar-item tags ablog__tags">
+    <span>
+       
+      <i class="fa-fw fa fa-tags"></i>
+       
+    </span>
+     
+    <a href="../../../blog/tag/python/">python</a>
+        
+    <a href="../../../blog/tag/kata/">kata</a>
+        
+    <a href="../../../blog/tag/tdd/">tdd</a>
+        
+    <a href="../../../blog/tag/ai/">ai</a>
+        
+    <a href="../../../blog/tag/software-design/">software-design</a>
+      
+  </li>
+   
+  <li id="ablog-sidebar-item comments ablog__comments">
+    <script type="text/javascript">
+      var disqus_shortname = "enkidulan";
+
+      (function () {
+        var s = document.createElement("script");
+        s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (
+          document.getElementsByTagName("HEAD")[0] ||
+          document.getElementsByTagName("BODY")[0]
+        ).appendChild(s);
+      })();
+    </script>
+    
+    <i class="fa-fw fa fa-comments"></i>
+    
+    <a
+      href="#disqus_thread"
+      data-disqus-identifier="/posts/katas/supermarket_receipt_kata/"
+    >
+      
+    </a>
+  </li>
+  
+</div>
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__recentposts">
+  <h3>
+    <a href="../../../blog/">Recent Posts</a>
+  </h3>
+  <ul>
+     
+    <li>
+      <a href="../../viy_memory_debugging/">
+        Apr 18, 2026 - Viy: Simple End-to-End Process Monitoring for Linux
+      </a>
+    </li>
+    
+    <li>
+      <a href="../../easy_diagrams/roadmap/">
+        Jan 14, 2025 - EasyDiagram: Next Steps
+      </a>
+    </li>
+    
+    <li>
+      <a href="../../easy_diagrams/mvp_design/">
+        Jan 08, 2025 - EasyDiagrams: Designing MVP
+      </a>
+    </li>
+    
+    <li>
+      <a href="../gilded_rose_kata/">
+        Sep 27, 2024 - Gilded Rose Refactoring Kata
+      </a>
+    </li>
+    
+    <li>
+      <a href="../../it_has_been_a_while/">
+        Sep 19, 2023 - My blog is back
+      </a>
+    </li>
+    
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__tagcloud">
+  <link
+    rel="stylesheet"
+    href="../../../_static/ablog/tagcloud.css"
+    type="text/css"
+  />
+  <h3><a href="../../../blog/tag/">Tags</a></h3>
+  <ul class="ablog-cloud">
+     
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/ai/">ai</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/blog/">blog</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/debugging/">debugging</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/easy_diagrams/">easy_diagrams</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/kata/">kata</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/monitoring/">monitoring</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/pdb/">pdb</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/performance/">performance</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/plantuml/">plantuml</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/pytest/">pytest</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-5">
+      <a href="../../../blog/tag/python/">python</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/rust/">rust</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-2">
+      <a href="../../../blog/tag/software-design/">software-design</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/system-design/">system-design</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/tdd/">tdd</a>
+    </li>
+      
+    <li class="ablog-cloud ablog-cloud-1">
+      <a href="../../../blog/tag/testing/">testing</a>
+    </li>
+     
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__categories">
+  <h3>
+    <a href="../../../blog/category/">Categories</a>
+  </h3>
+  <ul>
+     
+    <li>
+      <a href="../../../blog/category/python/">python (7)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/category/rust/">rust (1)</a>
+    </li>
+     
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__archives">
+  <h3>
+    <a href="../../../blog/archive/">Archives</a>
+  </h3>
+  <ul>
+     
+    <li>
+      <a href="../../../blog/2026/">2026 (2)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2025/">2025 (2)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2024/">2024 (1)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2023/">2023 (1)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2021/">2021 (1)</a>
+    </li>
+      
+    <li>
+      <a href="../../../blog/2016/">2016 (1)</a>
+    </li>
+     
+  </ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">TDD in age of LLM</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section id="tdd-in-age-of-llm">
+<h1>TDD in age of LLM<a class="headerlink" href="#tdd-in-age-of-llm" title="Link to this heading">#</a></h1>
+<p>For over two decades, TDD has been one of the most powerful tools in software development. Its focus on breaking down the complexity of a codebase into abstractions with clear responsibilities, mapped to the domain, provides a way to express business rules through code. This has made it one of the leading practices in software development. However, in recent years, the advent of LLMs has been a game changer. Their ability to produce large amounts of code in a very short time, often more than can be thoroughly reviewed and validated, has pushed TDD and traditional approaches to software development into new and largely uncharted territory.</p>
+<p>In this article, I will evaluate test-driven development in the context of LLM-assisted coding. I use TDD as a broad term encompassing traditional TDD, BDD, ATDD, SDD, and DDD as they are practiced in the software development industry. While these approaches differ, they have one thing in common: they use the domain as a lens through which to scope and structure the code. I share my experience and thoughts, along with some useful lessons learned as I explore LLM-assisted TDD by working through the Supermarket Receipt Refactoring Kata.</p>
+<section id="supermarket-receipt-refactoring-kata">
+<h2>Supermarket Receipt Refactoring Kata<a class="headerlink" href="#supermarket-receipt-refactoring-kata" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://github.com/emilybache/SupermarketReceipt-Refactoring-Kata">Supermarket Receipt Refactoring Kata</a> is a small supermarket checkout system that prices a cart, applies the week’s discounts, and prints a receipt. The kata starts with poorly structured code, no tests, and a high-level description of the expected behavior. The goal is to add new features while keeping the existing behavior intact. This makes it a great exercise for trying different LLM-assisted coding approaches.</p>
+<p>One of the most tangled parts of the code is the discount logic. Here is the original code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ShoppingCart</span><span class="p">:</span>
+
+   <span class="k">def</span><span class="w"> </span><span class="nf">handle_offers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">receipt</span><span class="p">,</span> <span class="n">offers</span><span class="p">,</span> <span class="n">catalog</span><span class="p">):</span>
+      <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_product_quantities</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">quantity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_product_quantities</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">offers</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+               <span class="n">offer</span> <span class="o">=</span> <span class="n">offers</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+               <span class="n">unit_price</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">unit_price</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+               <span class="n">quantity_as_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">quantity</span><span class="p">)</span>
+               <span class="n">discount</span> <span class="o">=</span> <span class="kc">None</span>
+               <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+               <span class="k">if</span> <span class="n">offer</span><span class="o">.</span><span class="n">offer_type</span> <span class="o">==</span> <span class="n">SpecialOfferType</span><span class="o">.</span><span class="n">THREE_FOR_TWO</span><span class="p">:</span>
+                  <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+
+               <span class="k">elif</span> <span class="n">offer</span><span class="o">.</span><span class="n">offer_type</span> <span class="o">==</span> <span class="n">SpecialOfferType</span><span class="o">.</span><span class="n">TWO_FOR_AMOUNT</span><span class="p">:</span>
+                  <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+                  <span class="k">if</span> <span class="n">quantity_as_int</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+                        <span class="n">total</span> <span class="o">=</span> <span class="n">offer</span><span class="o">.</span><span class="n">argument</span> <span class="o">*</span> <span class="p">(</span><span class="n">quantity_as_int</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">quantity_as_int</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">unit_price</span>
+                        <span class="n">discount_n</span> <span class="o">=</span> <span class="n">unit_price</span> <span class="o">*</span> <span class="n">quantity</span> <span class="o">-</span> <span class="n">total</span>
+                        <span class="n">discount</span> <span class="o">=</span> <span class="n">Discount</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s2">"2 for "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">offer</span><span class="o">.</span><span class="n">argument</span><span class="p">),</span> <span class="o">-</span><span class="n">discount_n</span><span class="p">)</span>
+
+               <span class="k">if</span> <span class="n">offer</span><span class="o">.</span><span class="n">offer_type</span> <span class="o">==</span> <span class="n">SpecialOfferType</span><span class="o">.</span><span class="n">FIVE_FOR_AMOUNT</span><span class="p">:</span>
+                  <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+
+               <span class="n">number_of_x</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">quantity_as_int</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span>
+               <span class="k">if</span> <span class="n">offer</span><span class="o">.</span><span class="n">offer_type</span> <span class="o">==</span> <span class="n">SpecialOfferType</span><span class="o">.</span><span class="n">THREE_FOR_TWO</span> <span class="ow">and</span> <span class="n">quantity_as_int</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+                  <span class="n">discount_amount</span> <span class="o">=</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">unit_price</span> <span class="o">-</span> <span class="p">(</span>
+                              <span class="p">(</span><span class="n">number_of_x</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">unit_price</span><span class="p">)</span> <span class="o">+</span> <span class="n">quantity_as_int</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">unit_price</span><span class="p">)</span>
+                  <span class="n">discount</span> <span class="o">=</span> <span class="n">Discount</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s2">"3 for 2"</span><span class="p">,</span> <span class="o">-</span><span class="n">discount_amount</span><span class="p">)</span>
+
+               <span class="k">if</span> <span class="n">offer</span><span class="o">.</span><span class="n">offer_type</span> <span class="o">==</span> <span class="n">SpecialOfferType</span><span class="o">.</span><span class="n">TEN_PERCENT_DISCOUNT</span><span class="p">:</span>
+                  <span class="n">discount</span> <span class="o">=</span> <span class="n">Discount</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">offer</span><span class="o">.</span><span class="n">argument</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="si">% o</span><span class="s2">ff"</span><span class="p">,</span>
+                                       <span class="o">-</span><span class="n">quantity</span> <span class="o">*</span> <span class="n">unit_price</span> <span class="o">*</span> <span class="n">offer</span><span class="o">.</span><span class="n">argument</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+
+               <span class="k">if</span> <span class="n">offer</span><span class="o">.</span><span class="n">offer_type</span> <span class="o">==</span> <span class="n">SpecialOfferType</span><span class="o">.</span><span class="n">FIVE_FOR_AMOUNT</span> <span class="ow">and</span> <span class="n">quantity_as_int</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
+                  <span class="n">discount_total</span> <span class="o">=</span> <span class="n">unit_price</span> <span class="o">*</span> <span class="n">quantity</span> <span class="o">-</span> <span class="p">(</span>
+                              <span class="n">offer</span><span class="o">.</span><span class="n">argument</span> <span class="o">*</span> <span class="n">number_of_x</span> <span class="o">+</span> <span class="n">quantity_as_int</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">unit_price</span><span class="p">)</span>
+                  <span class="n">discount</span> <span class="o">=</span> <span class="n">Discount</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" for "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">offer</span><span class="o">.</span><span class="n">argument</span><span class="p">),</span> <span class="o">-</span><span class="n">discount_total</span><span class="p">)</span>
+
+               <span class="k">if</span> <span class="n">discount</span><span class="p">:</span>
+                  <span class="n">receipt</span><span class="o">.</span><span class="n">add_discount</span><span class="p">(</span><span class="n">discount</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The code has several smells and issues, including an incorrect total calculation caused by using <code class="docutils literal notranslate"><span class="pre">/</span></code> instead of <code class="docutils literal notranslate"><span class="pre">//</span></code> when calculating the number of qualifying offer groups:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="n">offer</span><span class="o">.</span><span class="n">argument</span> <span class="o">*</span> <span class="p">(</span><span class="n">quantity_as_int</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">quantity_as_int</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">unit_price</span>
+</pre></div>
+</div>
+<p>You may also rightly question why the ShoppingCart class is responsible for handling discounts, along with many other design decisions in the initial code. Which makes a core of the refactoring exercise. And might be LLM very helpful in spotting these smells and fixing design issues. However there is a fundamental question: should we even consider these smells as a reason to refactor the code in the first place in LLM age?</p>
+</section>
+<section id="a-place-in-the-loop">
+<h2>A place in the loop<a class="headerlink" href="#a-place-in-the-loop" title="Link to this heading">#</a></h2>
+<p>I would argue that as long as we want to keep humans in the loop, we should treat these code smells and design issues as valid reasons to refactor, especially in the age of LLMs, and be even more aggressive about it. TDD, in the broad sense, is the way of keeping human in the loop while addressing complexity comprehension and typing speed limits.  The human’s role in the loop is to define abstractions and provide domain-driven scoping, while the LLM assists with the implementation.</p>
+<p>Simply prompting an LLM to write tests before writing the code, or asking it to follow a TDD approach, removes the human from the “loop” and leaves the LLM responsible for the code’s design and architecture. This is not TDD. Just like running a team of agents, it’s a way to get code written faster, but it doesn’t necessarily develop deeper domain knowledge or expertise.</p>
+</section>
+<section id="llm-assisted-refactoring">
+<h2>LLM-assisted Refactoring<a class="headerlink" href="#llm-assisted-refactoring" title="Link to this heading">#</a></h2>
+<p>for this kata I will follow the following steps:</p>
+<ol class="arabic simple">
+<li><p>Understand domain, identify business rules, and the existing behavior.</p></li>
+<li><p>Capture the existing behavior through high-level tests.</p></li>
+<li><p>Refactor. Keep all existing tests passing.</p></li>
+<li><p>Add new features.</p></li>
+</ol>
+<section id="step-1-understand-domain">
+<h3>Step 1: Understand domain<a class="headerlink" href="#step-1-understand-domain" title="Link to this heading">#</a></h3>
+<p>The ability of LLMs to process large amounts of text, explore an entire codebase, and provide a high-level overview of its design and business rules is extremely valuable, especially when working with unfamiliar or poorly documented legacy code.</p>
+<a class="reference internal image-reference" href="../../../_images/object-relations.png"><img alt="LLM dump of codebase structure" class="align-center" src="../../../_images/object-relations.png" style="width: 100%;" />
+</a>
+<p>However, this wasn’t always straightforward, nor always accurate. LLMs would often dump everything they had gathered into one large block of information, without organizing it around the domain, distinguishing important business rules from implementation details, or providing a coherent picture of how the system actually works. The challenge wasn’t so much gathering information as making sense of it.</p>
+<p>What helped:</p>
+<ul class="simple">
+<li><p>Breaking the exploration into smaller, focused business rule focused chunks, rather than asking for a complete codebase overview in one prompt.</p></li>
+<li><p>Asking the LLM to identify business rules, domain concepts, and dependencies separately from implementation details.</p></li>
+<li><p>Requesting concrete examples and tracing specific business scenarios through the code.</p></li>
+<li><p>Challenging the results (are you really sure about that?) and verifying important findings by hand.</p></li>
+</ul>
+</section>
+<section id="step-2-pinning-down-existing-behavior-with-test">
+<h3>Step 2: Pinning down existing behavior with test<a class="headerlink" href="#step-2-pinning-down-existing-behavior-with-test" title="Link to this heading">#</a></h3>
+<p>LLMs tend to generate lots of low-level unit tests, often focusing on individual methods and implementation details, while overlooking the overall test structure and integration between components. 100% code coverage and 100% logical-case coverage aren’t the same thing, and LLM overlooked it several times.</p>
+<p>What helped:</p>
+<ul class="simple">
+<li><p>Identify business scenarios, and ask to cover them with tests via high-level interface</p></li>
+<li><p>Show test structure by an example, rather than just asking for it in a prompt</p></li>
+<li><p>Adding testing methods</p></li>
+<li><p>Split presentation layer from the domain layer, and test the domain layer first</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_ten_percent_discount</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+   <span class="n">toothbrush</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">"toothbrush"</span><span class="p">,</span> <span class="n">ProductUnit</span><span class="o">.</span><span class="n">EACH</span><span class="p">)</span>
+
+   <span class="n">catalog</span> <span class="o">=</span> <span class="n">InMemoryCatalog</span><span class="p">()</span>
+   <span class="n">catalog</span><span class="o">.</span><span class="n">add_product</span><span class="p">(</span><span class="n">toothbrush</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">)</span>
+
+   <span class="n">teller</span> <span class="o">=</span> <span class="n">Teller</span><span class="p">(</span><span class="n">catalog</span><span class="p">)</span>
+   <span class="n">teller</span><span class="o">.</span><span class="n">add_special_offer</span><span class="p">(</span><span class="n">SpecialOfferType</span><span class="o">.</span><span class="n">TEN_PERCENT_DISCOUNT</span><span class="p">,</span> <span class="n">toothbrush</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+   <span class="n">cart</span> <span class="o">=</span> <span class="n">ShoppingCart</span><span class="p">()</span>
+   <span class="n">cart</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">toothbrush</span><span class="p">)</span>
+
+   <span class="n">receipt</span> <span class="o">=</span> <span class="n">teller</span><span class="o">.</span><span class="n">checks_out_articles_from</span><span class="p">(</span><span class="n">cart</span><span class="p">)</span>
+
+   <span class="k">assert</span> <span class="n">receipt</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
+      <span class="s2">"items"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+               <span class="s2">"product"</span><span class="p">:</span> <span class="s2">"toothbrush"</span><span class="p">,</span>
+               <span class="s2">"unit"</span><span class="p">:</span> <span class="s2">"EACH"</span><span class="p">,</span>
+               <span class="s2">"quantity"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+               <span class="s2">"price"</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span>
+               <span class="s2">"total_price"</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span>
+            <span class="p">},</span>
+      <span class="p">],</span>
+      <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+               <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"10</span><span class="si">% o</span><span class="s2">ff"</span><span class="p">,</span>
+               <span class="s2">"product"</span><span class="p">:</span> <span class="s2">"toothbrush"</span><span class="p">,</span>
+               <span class="s2">"discount_amount"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.099</span><span class="p">,</span>
+            <span class="p">},</span>
+      <span class="p">],</span>
+      <span class="s2">"total_price"</span><span class="p">:</span> <span class="mf">0.891</span><span class="p">,</span>
+   <span class="p">},</span> <span class="s2">"ten percent off should reduce the toothbrush line"</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-refactor-keep-all-existing-tests-passing">
+<h3>Step 3: Refactor. Keep all existing tests passing.<a class="headerlink" href="#step-3-refactor-keep-all-existing-tests-passing" title="Link to this heading">#</a></h3>
+<p>This step is focused on improving the domain model and making code to reflect the business domain better. The goal is to make the code easier to understand and extend, so the human can be kept in the loop.</p>
+<p>Similarly to how I used a LLM to explore the domain structure, I used it to build a new domain model. However, LLMs are not always reliable at understanding use cases or explaining how the different parts of the system fit together. LLMs tend to jump to conclusions and start implementing solutions before the problem and domain model are properly understood or developed. The more advanced the LLM, the more it eager to jump into writing a huge amount of code.</p>
+<p>In practice, this often turned into two specification-driven development: I used the LLM to on domain desing specifications.</p>
+<a class="reference internal image-reference" href="../../../_images/high-level-specs.png"><img alt="LLM dump of codebase structure" class="align-center" src="../../../_images/high-level-specs.png" style="width: 50%;" />
+</a>
+<p>When I was happy with the domain model, I moved working on the implementation details specifications.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## Product
+
+Spec: a name sold by count or by weight. The price is not part of the product.
+
+Responsibility: identify something the shop sells. It does not know a price, an offer, a cart, or a receipt.
+
+A frozen model:
+
+- `name: str`
+- `unit`: each or kilo
+
+No methods. Callers read `product.name` and `product.unit`. Frozen so the same product can be the key in the catalog.
+</pre></div>
+</div>
+<p>What I learned about working with LLMs:</p>
+<ul class="simple">
+<li><p>Premature implementation: LLMs tend to jump straight into coding, sometimes producing a lot of work in the wrong direction before the domain and requirements are clear.</p></li>
+<li><p>Test drift: LLMs frequently modify existing tests to accommodate their implementation. This makes it easy to introduce slop or silently change the original expectations. Keeping the tests honest requires constant attention.</p></li>
+<li><p>Domain understanding: LLMs can describe code structures, but often struggle to explain the business rules and tell a coherent story about how the system works.</p></li>
+<li><p>Communication overhead: Explaining a design or desired change in natural language can be surprisingly difficult and time-consuming. Sometimes it’s easier to write a small prototype and let the LLM adapt it than to explain the intended structure in a prompt.</p></li>
+</ul>
+<p>What helped:</p>
+<ul class="simple">
+<li><p>Build domain model specifications first step by step, rather than all at once.</p></li>
+<li><p>Being explicit about preserving existing tests and their expectations. Never accepting a test change simply because it makes the implementation pass.</p></li>
+<li><p>Writing small prototypes or examples to communicate design intent when words aren’t enough.</p></li>
+<li><p>Frequently checking whether the implementation is moving in the right direction rather than trusting the amount of work the LLM has produced.</p></li>
+</ul>
+</section>
+<section id="step-4-add-new-features">
+<h3>Step 4: Add new features<a class="headerlink" href="#step-4-add-new-features" title="Link to this heading">#</a></h3>
+<p>This was the most straightforward step at the end, even though it’s the main focus of this post, because I’ve learned from the previous steps. I followed this workflow for LLM-assisted TDD:</p>
+<ol class="arabic simple">
+<li><p>Add specifications (Design / Domain). Identify where the feature belongs in the existing architecture/domain and create specifications for it.</p></li>
+<li><p>Add high-level tests. Define acceptance criteria and write tests covering the main user flows and expected behavior.</p></li>
+</ol>
+<p>3.Implement the feature. Work incrementally until the tests pass. Loop back to adding more tests when needed.</p>
+<p>Adding new features didn’t reveal anything new compared to the previous steps. I used the LLM to help me understand the new features and determine the best way to implement them. I also used it to write tests and implement the features.</p>
+<p>A few things I noticed again:</p>
+<ul class="simple">
+<li><p>Premature implementation. Don’t let the LLM start coding before it has finished working on the specifications and tests.</p></li>
+<li><p>Test drift. Don’t let the LLM modify or remove existing tests just to make them pass.</p></li>
+<li><p>Communication overhead. It’s easier to just write code and point the LLM to it than to explain the intent in a prompt.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+     
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+     
+    <a href="../../viy_memory_debugging/">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Viy: Simple End-to-End Process Monitoring for Linux</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+  </span>
+</div>
+  
+</div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, Maksym Shalenyi.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

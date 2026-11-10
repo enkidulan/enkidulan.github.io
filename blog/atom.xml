@@ -2,10 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://enkidulan.info/</id>
   <title>Enkidulan's blog Blog</title>
-  <updated>2026-04-18T18:49:32.701960+00:00</updated>
+  <updated>2026-11-10T09:17:49.870001+00:00</updated>
   <link href="https://enkidulan.info/"/>
   <link href="https://enkidulan.info/blog/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.io/" version="0.11.12">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.13">ABlog</generator>
+  <entry>
+    <id>https://enkidulan.info/posts/katas/supermarket_receipt_kata/</id>
+    <title>TDD in age of LLM</title>
+    <updated>2026-11-09T00:00:00-07:00</updated>
+    <author>
+      <name>Maksym Shalenyi</name>
+    </author>
+    <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;For over two decades, TDD has been one of the most powerful tools in software development. Its focus on breaking down the complexity of a codebase into abstractions with clear responsibilities, mapped to the domain, provides a way to express business rules through code. This has made it one of the leading practices in software development. However, in recent years, the advent of LLMs has been a game changer. Their ability to produce large amounts of code in a very short time, often more than can be thoroughly reviewed and validated, has pushed TDD and traditional approaches to software development into new and largely uncharted territory.&lt;/p&gt;
+&lt;/p&gt;
+</content>
+    <link href="https://enkidulan.info/posts/katas/supermarket_receipt_kata/"/>
+    <summary>For over two decades, TDD has been one of the most powerful tools in software development. Its focus on breaking down the complexity of a codebase into abstractions with clear responsibilities, mapped to the domain, provides a way to express business rules through code. This has made it one of the leading practices in software development. However, in recent years, the advent of LLMs has been a game changer. Their ability to produce large amounts of code in a very short time, often more than can be thoroughly reviewed and validated, has pushed TDD and traditional approaches to software development into new and largely uncharted territory.</summary>
+    <category term="ai" label="ai"/>
+    <category term="kata" label="kata"/>
+    <category term="python" label="python"/>
+    <category term="software-design" label="software-design"/>
+    <category term="tdd" label="tdd"/>
+    <published>2026-11-09T00:00:00-07:00</published>
+  </entry>
   <entry>
     <id>https://enkidulan.info/posts/viy_memory_debugging/</id>
     <title>Viy: Simple End-to-End Process Monitoring for Linux</title>
